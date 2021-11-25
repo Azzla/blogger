@@ -49,7 +49,10 @@ app.get('/', async (req, res) => {
 	res.render('index.ejs', { posts: posts, user: user })
 })
 app.get('/login', util.checkNotAuth, (req, res) => res.render('users/login.ejs'))
-app.get('/about', (req, res) => res.render('about.ejs'))
+app.get('/about', (req, res) => {
+	const user = req.user
+	res.render('about.ejs', { user: user })
+})
 
 // Routers
 const postsRouter = require('./routes/posts')
