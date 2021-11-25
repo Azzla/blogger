@@ -1,0 +1,12 @@
+.cont #description { min-height: 4em; }
+.cont #content { min-height: 20em; }
+
+button.submit {
+	background-color: var(--green);
+}
+
+@media (hover: hover) {
+	button.submit:hover {
+		background-color: var(--dark-green);
+	}
+}

@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/form-fields.css">
+<div class="cont">
+	<label for="title">Title</label>
+	<input required type="text" name="title" id="title" value="<%= post.title %>">
+</div>
+<div class="cont">
+	<label for="description">Description</label>
+	<textarea type="text" name="description" id="description"><%= post.description %></textarea>
+</div>
+<div class="cont">
+	<label for="content">Content</label>
+	<textarea required type="text" name="content" id="content"><%= post.content %></textarea>
+</div>
+
+<a class="cancel" href="/user/profile">Cancel</a>
+<button class="submit" type="submit">Save</button>

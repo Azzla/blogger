@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>User | Profile</title>
+		<link href="/css/global.css" rel="stylesheet" type="text/css">
+		<link href="/css/index.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<%- include('../partials/_navUser.ejs') %>
+		<div class="home">
+			<div class="inner">
+				<h1>Profile</h1>
+				<div class="posts-grid">
+					<% posts.forEach(post => { %>
+						<div class="post">
+							<div class="text">
+								<h2 class="title"><%= post.title %></h2>
+								<div class="date"><%= post.dateCreated.toLocaleDateString() %></div>
+								<p class="description"><%= post.description %></p>
+							</div>
+							<div class="actions">
+								<a href="/posts/edit/<%= post.slug %>" class="edit-post green">Edit Post</a>
+								<form class="delete" action="/posts/<%= post.id %>?_method=DELETE" method="POST"
+											onsubmit="return confirm('Are you sure you want to delete this post?');"
+								>
+									<button type="submit">Delete</button>
+								</form>
+							</div>
+						</div>
+					<% }) %>
+				</div>
+				<form class="logout" action="/user/logout?_method=DELETE" method="POST">
+					<button type="submit">Log Out</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

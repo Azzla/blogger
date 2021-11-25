@@ -1,0 +1,27 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link href="/css/global.css" rel="stylesheet" type="text/css">
+</head>
+<div class="login">
+	<div class="inner">
+		<h1>Login</h1>
+		<div class="error">
+			<% if (messages.error) { %>
+				<%= messages.error %>
+				<% } %>
+		</div>
+		<form method="post" action="/user/login">
+			<div class="cont">
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username" required>
+			</div>
+			<div class="cont">
+				<label for="password">Password</label>
+				<input type="password" id="passowrd" name="password" required>
+			</div>
+			<button type="submit">Login</button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><%= post.title %></title>
+		<link href="/css/global.css" rel="stylesheet" type="text/css">
+		<link href="/css/show.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<% if (user) {%>
+			<%- include('../partials/_navUser.ejs') %>
+		<% } else { %>
+			<%- include('../partials/_nav.ejs') %>
+		<% } %>
+		<div class="show">
+			<div class="inner">
+				<h1><%= post.title %></h1>
+				<div class="date"><%= post.dateCreated.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></div>
+				<div class="body">
+					<%- post.sanitizedHtml %>
+				</div>
+				<% if (user) {%>
+					<a href="/posts/edit/<%= post.slug %>" class="edit-post">Edit Post</a>
+				<% } %>
+			</div>
+		</div>
+		<%- include('../partials/_footer.ejs') %>
+	</body>
+</html>

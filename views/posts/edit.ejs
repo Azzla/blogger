@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Posts | Edit</title>
+		<link href="/css/global.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<%- include('../partials/_navUser.ejs') %>
+		<div class="edit">
+			<div class="inner">
+				<h1>Edit Blog Post</h1>
+				<form action="/posts/<%= post.id %>?_method=PUT" method="POST">
+					<%- include('../partials/_form_fields.ejs') %>
+				</form>
+			</div>
+		</div>
+		<%- include('../partials/_footer.ejs') %>
+	</body>
+</html>

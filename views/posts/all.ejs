@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Posts | View All</title>
+		<link href="/css/global.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<% if (user) {%>
+			<%- include('../partials/_navUser.ejs') %>
+		<% } else { %>
+			<%- include('../partials/_nav.ejs') %>
+		<% } %>
+		<div class="home">
+			<div class="inner">
+				<h1>All Blog Posts</h1>
+			</div>
+		</div>
+		<%- include('../partials/_footer.ejs') %>
+	</body>
+</html>
