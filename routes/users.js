@@ -12,7 +12,7 @@ router.use(methodOverride('_method'))
 router.get('/', util.checkAuth, (req, res) => res.redirect('/profile'))
 
 module.exports = function(passport) {
-	router.get('/register', /*util.checkAdmin,*/(req, res) => res.render('users/register.ejs'))
+	router.get('/register', util.checkAdmin, (req, res) => res.render('users/register.ejs'))
 	router.get('/profile', util.checkAuth, async (req, res) => {
 		const posts = await Post.find()
 		if (!posts) {
@@ -25,7 +25,7 @@ module.exports = function(passport) {
 	})
 	
 	// Register User
-	router.post('/register', /*util.checkAuth,*/async (req, res) => {
+	router.post('/register', util.checkAuth, async (req, res) => {
 		try {
 			const hashedPass = await bcrypt.hash(req.body.password, 10);
 			const user = new User({
