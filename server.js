@@ -1,8 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
-	require('dotenv').config()
-}
 const express = require('express')
 const app = express()
+const port = 3000
 const mongoose = require('mongoose')
 const passport = require('passport')
 const flash = require('express-flash')
@@ -12,11 +10,11 @@ const util = require('./config/utils')
 const User = require('./models/user')
 const Post = require('./models/post')
 
-/*TODO
-1. Separate Authenticated Navigation and Viewer Navigations
-2. Move index page + viewer routes to separate router
-3. Implement All Live Databases
-*/
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config()
+} else {
+	// app.use(enforce.HTTPS({ trustProtoHeader: true }))
+}
 
 // mongoDB
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
@@ -87,4 +85,4 @@ app.get('/*', (req, res) => {
 })
 
 // Server
-app.listen(3000, () => console.log('Server Started'))
+app.listen(process.env.PORT || port, () => console.log('Server Started'))
