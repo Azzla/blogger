@@ -11,6 +11,7 @@
 	display: grid;
 	grid-template-rows: 1fr .25fr;
 	background-color: var(--off-white);
+	height: 100%;
 }
 
 .all .posts-grid .post .title {

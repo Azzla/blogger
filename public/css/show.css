@@ -25,11 +25,19 @@
 	margin: 0 auto;
 }
 
+
+.show .body p {
+	text-indent: 50px;
+}
+
 .show .body p + p {
-	padding-top: var(--space-2);
+	margin-top: var(--space-3);
 }
 
 .show a.edit-post {
+	display: block;
+	width: fit-content;
+	width: -moz-fit-content;
 	position: relative;
-	top: -48px;
+	top: -40px;
 }

@@ -25,11 +25,6 @@
 									<div class="date"><%= post.dateCreated.toLocaleDateString() %></div>
 									<p class="description"><%= post.description %></p>
 								</div>
-								<% if (user) { %>
-									<div class="actions">
-										<a href="/posts/edit/<%= post.slug %>" class="button edit-post green">Edit Post</a>
-									</div>
-								<% } %>
 							</div>
 						</a>
 					<% }) %>

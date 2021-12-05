@@ -20,6 +20,11 @@ if (process.env.NODE_ENV !== 'production') {
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 const db = mongoose.connection
 
+/* TODO:
+1. Enable editing of About section
+2. 
+*/
+
 // CONFIG //////////////////////////////////////////////////////////////////////
 const initPassport = require('./config/passport_config')
 initPassport(
@@ -43,7 +48,7 @@ app.use(express.static(__dirname + '/public')) // serve static files
 ////////////////////////////////////////////////////////////////////////////////
 
 app.get('/', async (req, res) => {
-	const posts = await Post.find()
+	const posts = await Post.find({}).sort({dateCreated: -1})
 	const user = req.user
 
 	res.render('index.ejs', { posts: posts, user: user })
@@ -71,7 +76,7 @@ app.get('/posts/:slug', async (req, res) => {
 
 //View All Posts
 app.get('/posts', async (req, res) => {
-	const posts = await Post.find()
+	const posts = await Post.find({}).sort({dateCreated: -1})
 	const user = req.user
 	if (posts == null) res.redirect('/')
 	

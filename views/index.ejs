@@ -22,7 +22,11 @@
 							<div class="text">
 								<h2 class="title"><%= post.title %></h2>
 								<div class="date"><%= post.dateCreated.toLocaleDateString() %></div>
-								<p class="description"><%= post.description %></p>
+								<div class="body">
+									<%- post.sanitizedHtml.substring(0, 1500) %>...
+									<a class="read-more" style="display: inline;" href="/posts/<%= post.slug %>">Read More</a>
+								</div>
+								
 							</div>
 							<% if (user) { %>
 								<div class="actions">

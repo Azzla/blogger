@@ -1,59 +1,64 @@
 .home .posts-grid {
-	display: grid;
-	grid-gap: var(--space-3);
-	grid-template-columns: 1fr;
-	grid-auto-rows: minmax(250px, 1fr);
-	grid-auto-flow: dense;
+	max-width: 1100px;
+	margin: 0 auto;
 }
 
 .home .posts-grid .post {
-	padding: var(--space-3);
-	display: grid;
-	grid-template-rows: 1fr .25fr;
-	background-color: var(--off-white);
+	padding-bottom: var(--space-4);
+	max-width: 1100px;
+}
+.home .posts-grid .post + .post {
+	margin-top: var(--space-4);
+	padding-top: var(--space-5);
+	border-top: 1px solid var(--dark-gray);
 }
 
-.home .posts-grid .post .title {
-	font-size: 1.75em;
+.home h2.title {
+	font-family: var(--font-display);
+	color: var(--dark-red);
+	font-size: 3em;
 	text-transform: unset;
 	text-align: left;
 	margin-bottom: var(--space-2);
 }
-.home .posts-grid .post .date {
-	font-size: 1.1em;
+
+.home .date {
+	font-size: 1.3em;
 	color: var(--dark-gray);
 	font-weight: lighter;
-	margin-bottom: var(--space-3);
+	margin-bottom: var(--space-4);
 }
-.home .posts-grid .post .description {
-	font-size: 1em;
+
+.home .body {
+	padding: 0 var(--space-4);
+	font-size: 1.1em;
 	letter-spacing: .02em;
-	line-height: 1.3em;
-	color: var(--dark-gray);
+	line-height: 2em;
+	margin: 0 auto;
 }
 
-.home .posts-grid .post .actions {
-	display: flex;
-	align-items: baseline;
-	justify-content: flex-end;
-	gap: var(--space-3);
+.home .body p {
+	text-indent: 50px;
 }
-.home .posts-grid .post .delete {
-	margin: auto 0 0 0;
-	height: fit-content;
+.home .body p + p {
+	margin-top: var(--space-3);
 }
 
-.home .posts-grid .post .edit-post, .home .posts-grid .post .delete button {
-	align-self: flex-end;
-	width: fit-content;
-	width: -moz-fit-content;
-	font-size: .9em;
-	padding: var(--space-1) var(--space-2);
-	margin: 0;
+.home a.read-more {
+	display: inline;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: var(--red);
+	transition: color 150ms ease;
 }
 
-@media (min-width: 64em) {
-	.home .posts-grid {
-		grid-template-columns: 1fr 1fr;
+.home a.edit-post {
+	position: relative;
+	top: 20px;
+}
+
+@media (hover:hover) {
+	.home a.read-more:hover {
+		color: var(--dark-red);
 	}
 }

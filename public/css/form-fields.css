@@ -1,5 +1,5 @@
 .cont #description { min-height: 4em; }
-.cont #content { min-height: 20em; }
+.cont #content { min-height: 20em; padding: 8px var(--space-4); }
 
 button.submit {
 	background-color: var(--green);
@@ -9,4 +9,8 @@ button.submit {
 	button.submit:hover {
 		background-color: var(--dark-green);
 	}
+}
+
+@media (min-width: 64em) {
+	.cont #content { min-height: 30em; }
 }
