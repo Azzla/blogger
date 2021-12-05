@@ -1,4 +1,4 @@
-.home .posts-grid {
+.all .posts-grid {
 	display: grid;
 	grid-gap: var(--space-3);
 	grid-template-columns: 1fr;
@@ -6,44 +6,44 @@
 	grid-auto-flow: dense;
 }
 
-.home .posts-grid .post {
+.all .posts-grid .post {
 	padding: var(--space-3);
 	display: grid;
 	grid-template-rows: 1fr .25fr;
 	background-color: var(--off-white);
 }
 
-.home .posts-grid .post .title {
+.all .posts-grid .post .title {
 	font-size: 1.75em;
 	text-transform: unset;
 	text-align: left;
 	margin-bottom: var(--space-2);
 }
-.home .posts-grid .post .date {
+.all .posts-grid .post .date {
 	font-size: 1.1em;
 	color: var(--dark-gray);
 	font-weight: lighter;
 	margin-bottom: var(--space-3);
 }
-.home .posts-grid .post .description {
+.all .posts-grid .post .description {
 	font-size: 1em;
 	letter-spacing: .02em;
 	line-height: 1.3em;
 	color: var(--dark-gray);
 }
 
-.home .posts-grid .post .actions {
+.all .posts-grid .post .actions {
 	display: flex;
 	align-items: baseline;
 	justify-content: flex-end;
 	gap: var(--space-3);
 }
-.home .posts-grid .post .delete {
+.all .posts-grid .post .delete {
 	margin: auto 0 0 0;
 	height: fit-content;
 }
 
-.home .posts-grid .post .edit-post, .home .posts-grid .post .delete button {
+.all .posts-grid .post .edit-post, .all .posts-grid .post .delete button {
 	align-self: flex-end;
 	width: fit-content;
 	width: -moz-fit-content;
@@ -53,7 +53,7 @@
 }
 
 @media (min-width: 64em) {
-	.home .posts-grid {
+	.all .posts-grid {
 		grid-template-columns: 1fr 1fr;
 	}
 }

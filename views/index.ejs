@@ -16,7 +16,6 @@
 		
 		<div class="home">
 			<div class="inner">
-				<h1>Blog</h1>
 				<div class="posts-grid">
 					<% posts.forEach(post => { %>
 						<div class="post">
@@ -27,7 +26,7 @@
 							</div>
 							<% if (user) { %>
 								<div class="actions">
-									<a href="/posts/edit/<%= post.slug %>" class="edit-post green">Edit Post</a>
+									<a href="/posts/edit/<%= post.slug %>" class="button edit-post green">Edit Post</a>
 								</div>
 							<% } %>
 						</div>

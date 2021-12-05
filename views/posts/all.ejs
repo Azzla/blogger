@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Posts | View All</title>
 		<link href="/css/global.css" rel="stylesheet" type="text/css">
+		<link href="/css/all.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<% if (user) {%>
@@ -12,9 +13,27 @@
 		<% } else { %>
 			<%- include('../partials/_nav.ejs') %>
 		<% } %>
-		<div class="home">
+		<div class="all">
 			<div class="inner">
-				<h1>All Blog Posts</h1>
+				<h1>All Posts</h1>
+				<div class="posts-grid">
+					<% posts.forEach(post => { %>
+						<a href="/posts/<%= post.slug %>">
+							<div class="post">
+								<div class="text">
+									<h2 class="title"><%= post.title %></h2>
+									<div class="date"><%= post.dateCreated.toLocaleDateString() %></div>
+									<p class="description"><%= post.description %></p>
+								</div>
+								<% if (user) { %>
+									<div class="actions">
+										<a href="/posts/edit/<%= post.slug %>" class="button edit-post green">Edit Post</a>
+									</div>
+								<% } %>
+							</div>
+						</a>
+					<% }) %>
+				</div>
 			</div>
 		</div>
 		<%- include('../partials/_footer.ejs') %>
